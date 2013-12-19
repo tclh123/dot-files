@@ -1,0 +1,8 @@
+--ignore-dir=tmp
+--ignore-dir=venv
+--ignore-dir=tmpdir
+--ignore-dir=permdir
+--ignore-dir=dist
+--ignore-dir=build
+--ignore-dir=*.egg-info
+--ignore-dir=*.egg

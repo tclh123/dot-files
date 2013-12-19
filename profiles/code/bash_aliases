@@ -1,0 +1,30 @@
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
+
+alias jb="jobs"
+
+
+alias sv="dae serve -p 8887 --pidfile ~/var/dae-serve.pid --daemon"
+alias svkill="kill `cat ~/var/dae-serve.pid`"
+alias gd="grunt dev"
+alias gw="grunt watch"
+alias gwd="grunt watch > ~/code/tmp/grunt-watch.log 2>&1 &"
+alias mq="beanstalkd > ~/code/tmp/beanstalkd.log 2>&1 &"
+
+alias codedev="source ~/code/venv/bin/activate;cd ~/code;dae serve -p 8887 --pidfile ~/var/dae-serve.pid --daemon;grunt watch > ~/code/tmp/grunt-watch.log 2>&1 &"
+
+# dir
+alias direllen="cd ~/ellen"
+alias dircode="cd ~/code"
+alias dirjagare="cd ~/jagare"
+
+# dae
+
+alias daepre="dae pre --ldap lh_intern"
+
+# tools
+
+alias pipistedtb="sudo pip install --src ~/venv/src"
+alias psgrep="ps -ef | grep"
+
+# vim:set ft=sh:
