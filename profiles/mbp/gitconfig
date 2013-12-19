@@ -1,0 +1,26 @@
+[user]
+	name = tclh123
+	email = tclh123@gmail.com
+[core]
+    excludesfile = /Users/tclh123/.gitignore_global
+[color]
+    ui = auto
+    interactive = auto
+
+[http]
+    postBuffer = 524288000
+    proxy = http://tunnel.douban.com:8118
+
+[alias]
+    s = status
+    br = branch
+    cm = commit
+    co = checkout
+    l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    ll = log --stat --abbrev-commit
+    d = diff --color-words
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim

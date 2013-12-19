@@ -1,0 +1,75 @@
+
+# Copy from doubandev2 ;)
+
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+#export LSCOLORS=GxFxCxDxBxegedabagaced
+#export LSCOLORS=ExFxCxDxBxegedabagacad
+use_color=true
+
+# Set colorful PS1 only on colorful terminals.
+# dircolors --print-database uses its own built-in database
+# instead of using /etc/DIR_COLORS.  Try to use the external file
+# first to take advantage of user additions.  Use internal bash
+# globbing instead of external grep binary.
+
+#safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
+#match_lhs=""
+#[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
+#[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
+#[[ -z ${match_lhs}    ]] \
+#	&& type -P dircolors >/dev/null \
+#	&& match_lhs=$(dircolors --print-database)
+#[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
+
+if ${use_color} ; then
+	# Enable colors for ls, etc.
+
+	if [[ ${EUID} == 0 ]] ; then
+		PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+	else
+		PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+	fi
+
+	alias ls='ls -G'
+	# alias grep='grep -G'
+	# alias egrep='egrep -G'
+	# alias fgrep='fgrep -G'
+
+    # alias ls='ls --color=auto'
+    alias grep='grep --colour=auto'
+    alias egrep='egrep --colour=auto'
+    alias fgrep='fgrep --colour=auto'
+fi
+
+# Try to keep environment pollution down, EPA loves us.
+unset use_color safe_term match_lhs
+
+##############################################
+# PATH
+export PATH=${PATH}:/usr/local/mysql/bin/;
+export PATH=${PATH}:/Users/tclh123/Dev/android-sdk-macosx/tools;
+export PATH=${PATH}:/Applications/rar_osx;
+export PATH=${PATH}:/usr/local/sbin;
+export PATH=${PATH}:/usr/texbin;
+export PATH=${PATH}:$HOME/bin/;
+
+## cabal
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+## GAE
+export PATH=${PATH}:"/Volumes/Macintosh HD/整理/软件/开发工具/GAE/Google/google_appengine";
+
+# python
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+# javac
+alias javac='javac -J-Dfile.encoding=UTF-8 '
+
+
+# git ssh proxy
+# export GIT_SSH="/Users/tclh123/Programming/connect/socks5proxyssh"
+# DEBUG: ps aux | grep connect
+
+
+# alias dirwww="cd /Library/WebServer/Documents"
