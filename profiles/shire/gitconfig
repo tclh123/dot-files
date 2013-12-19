@@ -1,0 +1,16 @@
+[user]
+	email = tclh123@gmail.com
+	name = lh_intern
+[color]
+    ui = auto
+    interactive = auto
+[alias]
+    s = status
+    br = branch
+    cm = commit
+    co = checkout
+    l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    ll = log --stat --abbrev-commit
+    d = diff --color-words
+    rb = rebase
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort

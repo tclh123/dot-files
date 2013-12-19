@@ -1,0 +1,3 @@
+--ignore-dir=venv
+--ignore-dir=permdir
+--ignore-dir=dist

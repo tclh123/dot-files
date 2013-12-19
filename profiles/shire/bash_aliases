@@ -1,0 +1,40 @@
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
+
+alias jb="jobs"
+
+# grunt
+alias gd="grunt dev"
+alias gw="grunt watch"
+alias gwd="grunt watch > ~/log/grunt-watch.log 2>&1 &"
+
+# code
+alias codedev="source ~/code/venv/bin/activate;cd ~/code;dae serve -p 8888 --pidfile ~/var/dae-serve.pid --daemon;grunt watch > ~/code/tmp/grunt-watch.log 2>&1 &"
+
+alias sv="dae serve -p 8888 --pidfile ~/var/dae-serve.pid --daemon"
+alias killsv="lsof -i:8888 | grep gunicorn | awk '{if(NR==1) print $2}' | xargs kill"
+alias mq="beanstalkd > ~/log/beanstalkd.log 2>&1 &"
+
+# shire
+
+alias shiredev="cd ~/shire/shire_git_RO; make clean_var;make clean_pyc; make web; make fillup_sns_site;"
+alias dirshire="cd ~/shire/shire_git_RO"
+
+alias diranduin="cd ~/anduin"
+
+# ilmen & bootybay
+alias dirilmen="cd ~/shire/shire_git_RO/ilmen"
+alias dirbootybay="cd ~/bootybay"
+alias dirrider="cd ~/rider"
+
+alias cpilmen="sudo cp -rf ~/shire/shire_git_RO/ilmen ~/bootybay/tmpdir/"
+
+# rider
+
+alias rider="dae venv python scaffold.py"
+
+# dae
+
+alias daepre="dae pre --ldap lh_intern"
+
+# vim:set ft=sh:
