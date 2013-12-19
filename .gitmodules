@@ -1,0 +1,3 @@
+[submodule "dot-vim"]
+	path = dot-vim
+	url = git@github.com:tclh123/dot-vim.git
