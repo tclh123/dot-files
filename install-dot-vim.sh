@@ -3,6 +3,7 @@
 git submodule init
 git submodule update
 
-. dot-vim/install.sh
+cd dot-vim
+. install.sh
 
 # sudo pip install flake8
