@@ -15,3 +15,7 @@ My dot files collection controled by mutli-profiles.
 ```
 ./install-dot-vim.sh
 ```
+
+## TODO
+
+提供一种机制，使得 不同的 profile 可以使用各自特定的 dot-vim 的 版本号
