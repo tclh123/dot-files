@@ -14,6 +14,16 @@ alias curator="/home/lihan/venv/lh/bin/curator"
 
 alias qlang="rlwrap -r /home/lihan/projects/q/l32/q"
 
+# docker's
+alias psql='docker run -it --rm postgres psql'
+
+alias ceph='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 ceph'
+alias rbd='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rbd'
+alias rados='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rados'
+
+alias runlike="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock assaflavie/runlike"
+
+
 # # grunt
 # alias gd="grunt dev"
 # alias gw="grunt watch"
