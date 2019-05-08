@@ -14,6 +14,8 @@ alias curator="/home/lihan/venv/lh/bin/curator"
 
 alias qlang="rlwrap -r /home/lihan/projects/q/l32/q"
 
+alias ag="ag -u"
+
 # docker's
 alias psql='docker run -it --rm postgres psql'
 
