@@ -18,9 +18,13 @@
 [core]
 	excludesfile = /home/lihan/.gitignore_global
 
-## for go get
-#[http]
-#    postBuffer = 524288000
-#    proxy = http://gfw2:8118
+# for go get
+[http]
+    postBuffer = 524288000
+    proxy = http://jw:8118
+[https]
+    postBuffer = 524288000
+    proxy = http://jw:8118
+
 [push]
 	default = matching
