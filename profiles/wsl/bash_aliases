@@ -1,5 +1,5 @@
 # tmux
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux2="TERM=screen-256color-bce tmux"
 
 alias jb="jobs"
 
