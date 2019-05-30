@@ -17,7 +17,7 @@ main () {
   for file in "$folder"/*; do
     name="$(basename "$file")"
     dotname=".${name}"
-    if ! [[ "install readme" =~ $name || -e ~/$dotname || -d $file/.git ]]; then
+    if ! [[ "install readme" =~ $name || -e ~/$dotname || -d $file/.git ]] || [[ -L ~/$dotname ]]; then
       ln -sfnv ${file#$HOME/} "${HOME}/${dotname}"
     fi
   done

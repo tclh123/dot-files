@@ -1,0 +1,26 @@
+[user]
+	email = tclh123@gmail.com
+	name = tclh123
+[color]
+    ui = auto
+    interactive = auto
+[alias]
+    s = status
+    br = branch
+    cm = commit
+    co = checkout
+    l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    ll = log --stat --abbrev-commit
+    d = diff --color-words
+    rb = rebase
+    ds = icdiff
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[core]
+	excludesfile = /home/lihan/.gitignore_global
+
+## for go get
+#[http]
+#    postBuffer = 524288000
+#    proxy = http://gfw2:8118
+[push]
+	default = matching

@@ -1,0 +1,173 @@
+# Copy from doubandev2
+# Change the window title of X terminals 
+case ${TERM} in
+	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+		;;
+	screen)
+		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\033\\"'
+		;;
+esac
+
+use_color=true
+
+# Set colorful PS1 only on colorful terminals.
+# dircolors --print-database uses its own built-in database
+# instead of using /etc/DIR_COLORS.  Try to use the external file
+# first to take advantage of user additions.  Use internal bash
+# globbing instead of external grep binary.
+safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
+match_lhs=""
+[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
+[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
+[[ -z ${match_lhs}    ]] \
+	&& type -P dircolors >/dev/null \
+	&& match_lhs=$(dircolors --print-database)
+[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
+
+if ${use_color} ; then
+	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+	if type -P dircolors >/dev/null ; then
+		if [[ -f ~/.dir_colors ]] ; then
+			eval $(dircolors -b ~/.dir_colors)
+		elif [[ -f /etc/DIR_COLORS ]] ; then
+			eval $(dircolors -b /etc/DIR_COLORS)
+		fi
+	fi
+
+	if [[ ${EUID} == 0 ]] ; then
+		PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+	else
+		PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+	fi
+
+	alias ls='ls --color=auto'
+	alias grep='grep --colour=auto'
+	alias egrep='egrep --colour=auto'
+	alias fgrep='fgrep --colour=auto'
+else
+	if [[ ${EUID} == 0 ]] ; then
+		# show root@ when we don't have colors
+		PS1='\u@\h \W \$ '
+	else
+		PS1='\u@\h \w \$ '
+	fi
+fi
+
+# Try to keep environment pollution down, EPA loves us.
+unset use_color safe_term match_lhs
+
+#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`
+# PATH
+export PATH="$HOME/bin:${PATH}"
+export PATH="${PATH}:/usr/sbin"
+
+# for razor-client
+#export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
+export RAZOR_API=http://carl1:8080/api
+
+# ruby
+export PATH="$HOME/.gem/ruby/2.1.0/bin/:$PATH"
+
+export PRE_USER=lihan
+
+#export PATH="/usr/local/node/bin:$PATH"
+#
+#export PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
+#
+#export PATH="./node_modules/.bin:$PATH"
+#
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#unset RUBYOPT
+
+export GOPATH="$HOME/go"
+export PATH="${PATH}:$GOPATH/bin"
+
+export QHOME="$HOME/projects/q"
+
+####### unset
+
+unset PIP_USE_MIRRORS
+unset PIP_INDEX_URL
+unset PIP_TRUSTED_HOST
+
+#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`
+# run service: memcached and beansdb
+
+MC_PIDFILE=~/var/memcached.pid
+BEANS_PIDFILE=~/var/beansdb.pid
+
+if [ -f $MC_PIDFILE ]; then
+  if ps -p `cat $MC_PIDFILE` > /dev/null 2>&1 ; then
+    exit 1
+  else
+    memcached -d -u nobody -l 127.0.0.1 -p `cat $MC_PIDFILE` -U 0
+  fi
+fi
+if [ -f $BEANS_PIDFILE ]; then
+  if ps -p `cat $BEANS_PIDFILE` > /dev/null 2>&1 ; then
+    exit 1
+  else
+    beansdb -d -p `cat $BEANS_PIDFILE` -t 1
+  fi
+fi
+
+# dae search based on elasticsearch , default port=9200
+#~/elasticsearch/bin/elasticsearch
+
+#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`#`
+
+# . ~/ssh-find-agent.sh
+
+#ssh-find-agent -a
+#if [ -z "$SSH_AUTH_SOCK" ]
+#then
+#   eval $(ssh_agent) > /dev/null
+#   ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+#fi
+
+# # tmux window rename
+# case ${TERM} in
+# 	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+#     PROMPT_COMMAND='set_tmux_title $(pwd);'${PROMPT_COMMAND}
+# 		;;
+# 	screen)
+# 		;;
+# esac
+# set_tmux_title() {
+#     printf "\033k$1\033\\"
+# }
+# ssh() {
+#     if [[ -n $TMUX ]]; then
+#         set_tmux_title "$*"
+#         command ssh "$@"
+#         # set_tmux_title "bash"
+#     else
+#         command ssh "$@"
+#     fi
+# }
+
+# utils
+
+inttoip(){ echo $[$1>>24].$[($1>>16)&255].$[($1>>8)&255].$[$1&255]; }
+
+# # bash-completion
+# # source /etc/profile.d/bash-completion.sh
+# source /etc/bash/bashrc.d/bash_completion.sh
+# 
+# source /home/lihan/.dae/dae-completion.sh
+
+cd ~
+umask 022
+sudo cp ~/resolv.conf /etc/resolv.conf
+
+unset LANG
+export LANG="en_US.utf8"
+export LC_ALL="en_US.utf8"
+export LC_CTYPE="en_US.utf8"

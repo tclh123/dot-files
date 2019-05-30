@@ -1,0 +1,8 @@
+--ignore-dir=venv
+--ignore-dir=permdir
+--ignore-dir=dist
+--ignore-dir=build
+--ignore-dir=app/assets
+
+--type-set=pp:ext:pp
+--type-set=puppet:ext:pp
