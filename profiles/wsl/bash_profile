@@ -70,6 +70,10 @@ unset use_color safe_term match_lhs
 export PATH="$HOME/bin:${PATH}"
 export PATH="${PATH}:/usr/sbin"
 
+# wsl
+# for win commands, e.g. explorer.exe
+export PATH="${PATH}:/mnt/c/Windows"
+
 # for razor-client
 #export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
 export RAZOR_API=http://carl1:8080/api
