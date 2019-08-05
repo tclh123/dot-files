@@ -4,3 +4,5 @@
 backup
 
 dot-vim-bak
+
+dot-tmux/resurrect

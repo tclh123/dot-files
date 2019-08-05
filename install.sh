@@ -14,6 +14,9 @@ throw_error () {
 
 main () {
   folder=$1
+  if ! [[ -d $folder ]]; then
+    throw_error "$folder not exists"
+  fi
   for file in "$folder"/*; do
     name="$(basename "$file")"
     dotname=".${name}"
@@ -26,7 +29,7 @@ main () {
 install_profile () {
   profile=$1
   if [ -z "$profile" ]; then
-    throw_error "should choose one profile to install."
+    throw_error "Please choose one profile to install."
   else
     echo "install profile $profile"
     main "$here/$PROFILES_DIR/$profile"
