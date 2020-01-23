@@ -1,4 +1,13 @@
+# k8s
+
+alias k="kubectl"
+
 # tmux
+
+alias aws="aws2"
+
+## OLD BELOW
+
 # alias tmux="TERM=screen-256color-bce tmux"
 alias tmux2="TERM=screen-256color-bce tmux"
 
