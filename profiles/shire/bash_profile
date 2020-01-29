@@ -70,6 +70,7 @@ unset use_color safe_term match_lhs
 # PATH
 export PATH="$HOME/bin:${PATH}"
 export PATH="${PATH}:/usr/sbin"
+export PATH="${PATH}:$HOME/dot-files/kubectx"
 
 # # for razor-client
 # #export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
