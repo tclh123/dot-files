@@ -4,7 +4,7 @@ alias k="kubectl"
 
 # tmux
 
-alias aws="aws2"
+# alias aws="aws2"
 
 ## OLD BELOW
 
