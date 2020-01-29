@@ -1,3 +1,9 @@
 [submodule "dot-vim"]
 	path = dot-vim
 	url = git@github.com:tclh123/dot-vim.git
+[submodule "kube-ps1"]
+	path = kube-ps1
+	url = https://github.com/jonmosco/kube-ps1
+[submodule "kubectx"]
+	path = kubectx
+	url = https://github.com/ahmetb/kubectx.git
