@@ -7,3 +7,6 @@
 [submodule "kubectx"]
 	path = kubectx
 	url = https://github.com/ahmetb/kubectx.git
+[submodule "kube-shell"]
+	path = kube-shell
+	url = https://github.com/cloudnativelabs/kube-shell.git

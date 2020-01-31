@@ -1,6 +1,7 @@
 # k8s
-
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 alias k="kubectl"
+complete -F __start_kubectl k
 
 # tmux
 
