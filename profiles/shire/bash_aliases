@@ -1,13 +1,17 @@
 # k8s
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-alias k="kubectl"
-complete -F __start_kubectl k
 
-# tmux
+alias k="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+
+complete -F __start_kubectl k
 
 # alias aws="aws2"
 
 ## OLD BELOW
+
+# tmux
 
 # alias tmux="TERM=screen-256color-bce tmux"
 alias tmux2="TERM=screen-256color-bce tmux"
@@ -24,6 +28,7 @@ alias curator="/home/lihan/venv/lh/bin/curator"
 
 alias qlang="rlwrap -r /home/lihan/projects/q/l32/q"
 
+# alias ag="--path-to-ignore ~/.ignore"
 alias ag="ag -u"
 
 # docker's
@@ -34,6 +39,8 @@ alias rbd='docker run --rm --privileged=true --net=host -v /run/udev/control:/ru
 alias rados='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rados'
 
 alias runlike="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock assaflavie/runlike"
+
+# alias helm="docker run -ti --rm -v $(pwd):/apps -v ~/.kube:/root/.kube -v ~/.helm:/root/.helm -v /usr/local:/usr/local alpine/helm:2.14.1"
 
 
 # # grunt

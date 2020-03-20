@@ -1,3 +1,4 @@
+--ignore-dir=.ENV
 --ignore-dir=venv
 --ignore-dir=permdir
 --ignore-dir=dist

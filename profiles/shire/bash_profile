@@ -55,6 +55,7 @@ else
 fi
 
 # k8s
+# kube-ps1:
 # https://github.com/jonmosco/kube-ps1
 # https://www.freecodecamp.org/news/how-to-set-up-a-serious-kubernetes-terminal-dd07cab51cd4/
 if [[ -f $HOME/dot-files/kube-ps1/kube-ps1.sh ]]; then
@@ -66,6 +67,9 @@ if type kubectl; then
   source <(kubectl completion bash)
 fi
 
+# flux: Namespace in which fluxd is running
+export FLUX_FORWARD_NAMESPACE=flux
+
 # # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 
@@ -74,6 +78,19 @@ unset use_color safe_term match_lhs
 export PATH="$HOME/bin:${PATH}"
 export PATH="${PATH}:/usr/sbin"
 export PATH="${PATH}:$HOME/dot-files/kubectx"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+HISTTIMEFORMAT="%d/%m/%y %T "
+
+# python
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+eval "$(pyenv init -)"
+fi
 
 # # for razor-client
 # #export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
@@ -148,7 +165,10 @@ fi
 #   ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 #fi
 
-# # tmux window rename
+# tmux window rename
+# set_tmux_title() {
+#     printf "\033k$1\033\\"
+# }
 # case ${TERM} in
 # 	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
 #     PROMPT_COMMAND='set_tmux_title $(pwd);'${PROMPT_COMMAND}
@@ -156,9 +176,6 @@ fi
 # 	screen)
 # 		;;
 # esac
-# set_tmux_title() {
-#     printf "\033k$1\033\\"
-# }
 # ssh() {
 #     if [[ -n $TMUX ]]; then
 #         set_tmux_title "$*"
@@ -180,3 +197,11 @@ fi
 if [[ -f /etc/bash/bashrc.d/bash_completion.sh ]]; then
   source /etc/bash/bashrc.d/bash_completion.sh
 fi
+
+. $HOME/.cargo/env
+# export PATH="$HOME/.cargo/bin:$PATH"
+
+if [[ -f $HOME/.bash_extra ]]; then
+  . $HOME/.bash_extra
+fi
+

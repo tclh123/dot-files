@@ -15,6 +15,7 @@
     rb = rebase
     ds = icdiff
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    sha = rev-parse HEAD
 [core]
 	excludesfile = /home/lihan/.gitignore_global
 
