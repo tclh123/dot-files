@@ -9,6 +9,9 @@ complete -F __start_kubectl k
 
 # alias aws="aws2"
 
+# https://github.com/tclh123/jl
+alias jl="jl -color yes | less -R"
+
 ## OLD BELOW
 
 # tmux
