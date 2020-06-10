@@ -35,7 +35,7 @@ alias qlang="rlwrap -r /home/lihan/projects/q/l32/q"
 alias ag="ag -u"
 
 # docker's
-alias psql='docker run -it --rm postgres psql'
+# alias psql='docker run -it --rm postgres psql'
 
 alias ceph='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 ceph'
 alias rbd='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rbd'
