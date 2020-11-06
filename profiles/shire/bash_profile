@@ -198,10 +198,15 @@ if [[ -f /etc/bash/bashrc.d/bash_completion.sh ]]; then
   source /etc/bash/bashrc.d/bash_completion.sh
 fi
 
+# Rust
 . $HOME/.cargo/env
 # export PATH="$HOME/.cargo/bin:$PATH"
+
+if command -v rustc &>/dev/null; then
+  # https://github.com/racer-rust/racer#configuration
+  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 
 if [[ -f $HOME/.bash_extra ]]; then
   . $HOME/.bash_extra
 fi
-

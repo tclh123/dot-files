@@ -5,6 +5,8 @@ alias k="kubectl"
 alias kctx="kubectx"
 alias kns="kubens"
 
+alias k-taints="k get no -o=custom-columns=NAME:.metadata.name,TAINTS:.spec.taints,CREATE_TIME:.metadata.creationTimestamp --sort-by=.metadata.creationTimestamp"
+
 complete -F __start_kubectl k
 
 # alias aws="aws2"
