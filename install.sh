@@ -22,6 +22,10 @@ main () {
     dotname=".${name}"
     if ! [[ "install readme" =~ $name || -e ~/$dotname || -d $file/.git ]] || [[ -L ~/$dotname ]]; then
       ln -sfnv ${file#$HOME/} "${HOME}/${dotname}"
+    else
+      echo $dotname exists.
+      mv ~/$dotname ~/${dotname}.orig
+      ln -sfnv ${file#$HOME/} "${HOME}/${dotname}"
     fi
   done
 }

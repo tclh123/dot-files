@@ -54,18 +54,18 @@ else
 	fi
 fi
 
-# k8s
-# kube-ps1:
-# https://github.com/jonmosco/kube-ps1
-# https://www.freecodecamp.org/news/how-to-set-up-a-serious-kubernetes-terminal-dd07cab51cd4/
-if [[ -f $HOME/dot-files/kube-ps1/kube-ps1.sh ]]; then
-  source $HOME/dot-files/kube-ps1/kube-ps1.sh
-  PS1='\[\033[01;32m\]\u@\h$(kube_ps1)\[\033[01;34m\] \w \$\[\033[00m\] '
-fi
-
-if type kubectl; then
-  source <(kubectl completion bash)
-fi
+# # k8s
+# # kube-ps1:
+# # https://github.com/jonmosco/kube-ps1
+# # https://www.freecodecamp.org/news/how-to-set-up-a-serious-kubernetes-terminal-dd07cab51cd4/
+# if [[ -f $HOME/dot-files/kube-ps1/kube-ps1.sh ]]; then
+#   source $HOME/dot-files/kube-ps1/kube-ps1.sh
+#   PS1='\[\033[01;32m\]\u@\h$(kube_ps1)\[\033[01;34m\] \w \$\[\033[00m\] '
+# fi
+# 
+# if type kubectl; then
+#   source <(kubectl completion bash)
+# fi
 
 # flux: Namespace in which fluxd is running
 export FLUX_FORWARD_NAMESPACE=flux
@@ -198,9 +198,9 @@ if [[ -f /etc/bash/bashrc.d/bash_completion.sh ]]; then
   source /etc/bash/bashrc.d/bash_completion.sh
 fi
 
-# Rust
-. $HOME/.cargo/env
-# export PATH="$HOME/.cargo/bin:$PATH"
+# # Rust
+# . $HOME/.cargo/env
+# # export PATH="$HOME/.cargo/bin:$PATH"
 
 if command -v rustc &>/dev/null; then
   # https://github.com/racer-rust/racer#configuration
