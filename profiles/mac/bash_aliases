@@ -1,0 +1,85 @@
+# k8s
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+alias k="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+
+alias k-taints="k get no -o=custom-columns=NAME:.metadata.name,TAINTS:.spec.taints,CREATE_TIME:.metadata.creationTimestamp --sort-by=.metadata.creationTimestamp"
+
+complete -F __start_kubectl k
+
+# alias aws="aws2"
+
+# https://github.com/tclh123/jl
+alias jl="jl -color yes | less -R"
+
+## OLD BELOW
+
+# tmux
+
+# alias tmux="TERM=screen-256color-bce tmux"
+alias tmux2="TERM=screen-256color-bce tmux"
+
+alias jb="jobs"
+
+alias sshazure="ssh db-fw.cloudapp.net"
+
+alias gitp="git --git-dir /home/lihan/sysadmin.git/.git/"
+
+alias sshec2='ssh ec2-user@ec2-54-223-71-55.cn-north-1.compute.amazonaws.com.cn'
+
+alias curator="/home/lihan/venv/lh/bin/curator"
+
+alias qlang="rlwrap -r /home/lihan/projects/q/l32/q"
+
+# alias ag="--path-to-ignore ~/.ignore"
+alias ag="ag -u"
+
+# docker's
+# alias psql='docker run -it --rm postgres psql'
+
+alias ceph='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 ceph'
+alias rbd='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rbd'
+alias rados='docker run --rm --privileged=true --net=host -v /run/udev/control:/run/udev/control:ro -v /etc/ceph/:/etc/ceph/:ro ceph/ceph:v12.2 rados'
+
+alias runlike="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock assaflavie/runlike"
+
+# alias helm="docker run -ti --rm -v $(pwd):/apps -v ~/.kube:/root/.kube -v ~/.helm:/root/.helm -v /usr/local:/usr/local alpine/helm:2.14.1"
+
+
+# # grunt
+# alias gd="grunt dev"
+# alias gw="grunt watch"
+# alias gwd="grunt watch > ~/log/grunt-watch.log 2>&1 &"
+# 
+# # code
+# alias codedev="source ~/code/venv/bin/activate;cd ~/code;dae serve -p 8888 --pidfile ~/var/dae-serve.pid --daemon;grunt watch > ~/code/tmp/grunt-watch.log 2>&1 &"
+# 
+# alias sv="dae serve -p 8888 --pidfile ~/var/dae-serve.pid --daemon"
+# alias killsv="lsof -i:8888 | grep gunicorn | awk '{if(NR==1) print $2}' | xargs kill"
+# alias mq="beanstalkd > ~/log/beanstalkd.log 2>&1 &"
+# 
+# # shire
+# 
+# alias shiredev="cd ~/shire/shire_git_RO; make clean_var;make clean_pyc; make web; make fillup_sns_site;"
+# alias dirshire="cd ~/shire/shire_git_RO"
+# 
+# alias diranduin="cd ~/anduin"
+# 
+# # ilmen & bootybay
+# alias dirilmen="cd ~/shire/shire_git_RO/ilmen"
+# alias dirbootybay="cd ~/bootybay"
+# alias dirrider="cd ~/rider"
+# 
+# alias cpilmen="sudo cp -rf ~/shire/shire_git_RO/ilmen ~/bootybay/tmpdir/"
+# 
+# # rider
+# 
+# alias rider="dae venv python scaffold.py"
+# 
+# # dae
+# 
+# alias daepre="dae pre --ldap lh_intern"
+
+# vim:set ft=sh:
