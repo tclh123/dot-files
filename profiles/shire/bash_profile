@@ -202,11 +202,27 @@ fi
 # . $HOME/.cargo/env
 # # export PATH="$HOME/.cargo/bin:$PATH"
 
+# # NVM (NodeJS)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# NodeJs Yarn (for umi)
+# export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.yarn/bin"
+
 if command -v rustc &>/dev/null; then
   # https://github.com/racer-rust/racer#configuration
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
 
+# JAVA
+export JAVA_HOME=/usr/ali/java/
+
 if [[ -f $HOME/.bash_extra ]]; then
   . $HOME/.bash_extra
+fi
+
+if [[ -f $HOME/.bashrc ]]; then
+  . $HOME/.bashrc
 fi

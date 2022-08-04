@@ -105,3 +105,5 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+source ~/.airdrop/config/ad-completion.bash
+export PATH=~/bin:/home/hanshen.lh/.pyenv/bin:/home/hanshen.lh/bin:/home/hanshen.lh/.pyenv/bin:/home/hanshen.lh/bin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/X11R6/bin:/usr/sbin:/home/hanshen.lh/dot-files/kubectx:/home/hanshen.lh/go/bin:/usr/sbin:/home/hanshen.lh/dot-files/kubectx:/home/hanshen.lh/go/bin:/home/hanshen.lh/.yarn/bin

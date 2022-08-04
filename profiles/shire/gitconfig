@@ -1,6 +1,6 @@
 [user]
-	email = harry.lee@smarkets.com
-	name = Harry Lee
+	email = hanshen.lh@alibaba-inc.com
+	name = hanshen.lh
 [color]
     ui = auto
     interactive = auto
@@ -17,7 +17,7 @@
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
     sha = rev-parse HEAD
 [core]
-	excludesfile = /home/lihan/.gitignore_global
+	excludesfile = /home/hanshen.lh/.gitignore_global
 
 ## for go get
 #[http]

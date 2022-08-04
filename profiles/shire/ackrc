@@ -4,6 +4,18 @@
 --ignore-dir=dist
 --ignore-dir=build
 --ignore-dir=app/assets
+--ignore-dir=node_modules/
+
+--ignore-dir=tests/thirdparty_mock
+--ignore-dir=test-results/
+
+# for tdc
+--ignore-dir=src/unittest
+--ignore-dir=src/stabletest
+--ignore-dir=src/functiontest
+--ignore-dir=build.bak
+--ignore-dir=build.bak2
+--ignore-dir=build.orig
 
 --type-set=pp:ext:pp
 --type-set=puppet:ext:pp
