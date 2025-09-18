@@ -73,3 +73,6 @@ alias javac='javac -J-Dfile.encoding=UTF-8 '
 
 
 # alias dirwww="cd /Library/WebServer/Documents"
+
+# Nodejs
+eval "$(fnm env --use-on-cd --shell bash)"

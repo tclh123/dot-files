@@ -223,6 +223,6 @@ if [[ -f $HOME/.bash_extra ]]; then
   . $HOME/.bash_extra
 fi
 
-if [[ -f $HOME/.bashrc ]]; then
-  . $HOME/.bashrc
-fi
+# if [[ -f $HOME/.bashrc ]]; then
+#   . $HOME/.bashrc
+# fi
