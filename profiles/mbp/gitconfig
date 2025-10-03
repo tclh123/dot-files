@@ -7,9 +7,9 @@
     ui = auto
     interactive = auto
 
-[http]
-    postBuffer = 524288000
-    proxy = http://tunnel.douban.com:8118
+# [http]
+#     postBuffer = 524288000
+#     proxy = http://tunnel.douban.com:8118
 
 [alias]
     s = status
@@ -24,3 +24,8 @@
 	helper = osxkeychain
 [core]
 	editor = vim
+
+# [http]
+# 	proxy = socks5://localhost:7897
+# [https]
+# 	proxy = socks5://localhost:7897
