@@ -1,8 +1,11 @@
 --ignore-dir=.ENV
 --ignore-dir=venv
+--ignore-dir=.venv
 --ignore-dir=permdir
 --ignore-dir=dist
 --ignore-dir=build
+--ignore-dir=.build
+--ignore-dir=.dart_tool/flutter_build
 --ignore-dir=app/assets
 --ignore-dir=node_modules/
 

@@ -98,3 +98,5 @@ export CGO_ENABLED=1
 # GOPATH=~/go/
 export PATH=${PATH}:"$HOME/go/bin/"
 
+# droid, uv
+export PATH=$HOME/.local/bin:$PATH
